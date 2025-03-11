@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<!-- saved from url=(0063)file:///C:/Users/crist/Downloads/PENSAMIENTO%20VARIACIONAL.HTML -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pensamiento Variacional</title>
+    <link rel="stylesheet" href="./PENSAMIENTO VARIACIONAL_files/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --accent-color: #e74c3c;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        section {
+            background: white;
+            padding: 30px;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: left;
+        }
+        
+        section:hover::after {
+            transform: scaleX(1);
+        }
+        
+        h2 {
+            color: var(--dark-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        h2::before {
+            content: "➤";
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        ul li {
+            margin: 15px 0;
+            padding: 10px 15px;
+            background: rgba(236, 240, 241, 0.5);
+            border-radius: 8px;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+        }
+        
+        ul li:hover {
+            background: rgba(236, 240, 241, 0.9);
+            border-left: 4px solid var(--primary-color);
+            transform: translateX(5px);
+        }
+        
+        .icon {
+            color: var(--primary-color);
+            margin-right: 15px;
+            font-size: 1.2rem;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .image-container img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .image-container p {
+            margin-top: 10px;
+            font-style: italic;
+            color: var(--dark-color);
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .highlight {
+            background: linear-gradient(to right, rgba(52, 152, 219, 0.1), rgba(46, 204, 113, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+            margin: 20px 0;
+        }
+        
+        .highlight h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-top: 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: bold;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            color: var(--dark-color);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--primary-color), transparent);
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            background: var(--light-color);
+            color: var(--dark-color);
+            border-radius: 50%;
+            margin: 0 10px;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            background: var(--secondary-color);
+        }
+        
+        /* Animaciones */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        /* Estilos para barras de progreso */
+        .progress-container {
+            width: 100%;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        /* Contador de estadísticas */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            color: var(--dark-color);
+            font-size: 1rem;
+        }
+        
+        /* Timeline */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -10px;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Media queries */
+        @media screen and (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 21px;
+            }
+            
+            .left::after, .right::after {
+                left: 21px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Pensamiento Variacional</h1>
+            <p class="subtitle">Explorando la optimización y el cambio en sistemas matemáticos</p>
+        </header>
+
+        <div id="btnScrollTop" class="scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+
+        <section>
+            <h2>¿Qué es el pensamiento variacional?</h2>
+            <p>El pensamiento variacional es una rama de las matemáticas que estudia cómo varían las funciones y sistemas en respuesta a cambios en sus parámetros. Se originó a partir del cálculo de variaciones, desarrollado por matemáticos como Euler y Lagrange en el siglo XVIII, y es clave en la optimización y el modelado matemático.</p>
+            
+            <div class="highlight">
+                <h4>Importancia del pensamiento variacional</h4>
+                <p>Su aplicación es fundamental en física, ingeniería y economía, ya que permite encontrar soluciones óptimas en sistemas complejos, transformando nuestra comprensión del mundo y potenciando avances tecnológicos.</p>
+            </div>
+            
+            <div class="image-container float">
+                <img src="./PENSAMIENTO VARIACIONAL_files/Extremal_of_the_functional.svg" alt="Cálculo de Variaciones">
+                <p>Representación gráfica del cálculo de variaciones</p>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-text">Siglo de origen</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-text">Años de desarrollo</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-text">Aplicaciones</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>¿En qué ramas se necesita el pensamiento variacional?</h2>
+            <p>El pensamiento variacional es esencial en numerosas disciplinas científicas y aplicadas:</p>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-image" style="background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/CMB_Timeline300_no_WMAP.jpg/1200px-CMB_Timeline300_no_WMAP.jpg&#39;);"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Ciencias naturales</h3>
+                        <p>Dinámica de fluidos, mecánica cuántica, biología matemática y más.</p>
+                        <i class="fas fa-water icon"></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/EM_Spectrum_Properties_edit.svg/1200px-EM_Spectrum_Properties_edit.svg.png&#39;);"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Ingenierías</h3>
+                        <p>Optimización estructural, diseño de sistemas mecánicos y eléctricos.</p>
+                        <i class="fas fa-cogs icon"></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Standard_Model_of_Elementary_Particles.svg/1200px-Standard_Model_of_Elementary_Particles.svg.png&#39;);"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Economía y finanzas</h3>
+                        <p>Teoría de juegos, maximización de utilidades, modelos predictivos.</p>
+                        <i class="fas fa-chart-line icon"></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background-image: url(&#39;https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/BigBrain_-_The_reference_brain_from_the_BigBrain_project.jpg/1200px-BigBrain_-_The_reference_brain_from_the_BigBrain_project.jpg&#39;);"></div>
+                    <div class="card-content">
+                        <h3 class="card-title">Medicina y biotecnología</h3>
+                        <p>Modelado de procesos biológicos, imágenes médicas.</p>
+                        <i class="fas fa-heartbeat icon"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <ul>
+                <li><i class="fas fa-laptop-code icon"></i>Computación e inteligencia artificial (aprendizaje automático, optimización de redes neuronales).</li>
+                <li><i class="fas fa-rocket icon"></i>Aeroespacial (optimización de trayectorias de vuelo y diseño de cohetes).</li>
+                <li><i class="fas fa-paint-brush icon"></i>Arte y diseño (optimización de procesos creativos y visualización de datos).</li>
+                <li><i class="fas fa-globe icon"></i>Ciencias sociales (análisis de datos y modelado de comportamientos).</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Materias de pensamiento variacional en la carrera</h2>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Pensamiento variacional diferencial</h3>
+                        <p>Estudia cómo pequeñas variaciones en un sistema afectan su comportamiento.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Pensamiento variacional integral</h3>
+                        <p>Se enfoca en cómo los cambios acumulativos afectan un sistema en su conjunto.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Optimización matemática</h3>
+                        <p>Se centra en encontrar el mejor resultado en un conjunto de restricciones.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Teoría de juegos</h3>
+                        <p>Estudia las decisiones estratégicas en situaciones de competencia y cooperación.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Modelado matemático</h3>
+                        <p>Utiliza ecuaciones y funciones para representar fenómenos del mundo real.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Control óptimo</h3>
+                        <p>Se ocupa de encontrar políticas de control que optimicen funciones objetivo.</p>
+                        <div class="progress-container">
+                            <div class="progress-bar" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mitos y realidades del pensamiento variacional</h2>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-times-circle" style="color: var(--accent-color);"></i> Mito</h3>
+                        <p>"Es demasiado abstracto y difícil"</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> Realidad</h3>
+                        <p>Con una base sólida en matemáticas y una comprensión intuitiva de la optimización, el pensamiento variacional se vuelve una herramienta poderosa y aplicable.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-times-circle" style="color: var(--accent-color);"></i> Mito</h3>
+                        <p>"No lo voy a usar en la vida real"</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> Realidad</h3>
+                        <p>Desde la planificación de rutas óptimas en logística hasta la mejora de algoritmos en inteligencia artificial, el pensamiento variacional tiene aplicaciones en numerosos campos.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-times-circle" style="color: var(--accent-color);"></i> Mito</h3>
+                        <p>"Solo es útil para matemáticos"</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-check-circle" style="color: var(--secondary-color);"></i> Realidad</h3>
+                        <p>Profesionales de diversas áreas, como ingenieros, economistas y científicos, utilizan el pensamiento variacional en su trabajo diario.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ejemplos de aplicaciones en la vida diaria</h2>
+            
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-content">
+                        <i class="fas fa-dollar-sign icon" style="font-size: 2rem;"></i>
+                        <h3 class="card-title">Economía</h3>
+                        <p>Modelado de decisiones económicas para maximizar beneficios.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <i class="fas fa-running icon" style="font-size: 2rem;"></i>
+                        <h3 class="card-title">Deportes</h3>
+                        <p>Optimización de técnicas de entrenamiento para mejorar el rendimiento de los atletas.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <i class="fas fa-laptop icon" style="font-size: 2rem;"></i>
+                        <h3 class="card-title">Tecnología</h3>
+                        <p>Algoritmos de compresión de imágenes y videos, mejorando la eficiencia del almacenamiento.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <i class="fas fa-heartbeat icon" style="font-size: 2rem;"></i>
+                        <h3 class="card-title">Medicina</h3>
+                        <p>Análisis de imágenes médicas para diagnóstico de enfermedades, optimizando tratamientos.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <i class="fas fa-truck icon" style="font-size: 2rem;"></i>
+                        <h3 class="card-title">Logística</h3>
+                        <p>Optimización de rutas de entrega para reducir costos y tiempos de transporte.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <i class="fas fa-chart-pie icon" style="font-size: 2rem;"></i>
+                        <h3 class="card-title">Finanzas</h3>
+                        <p>Modelos predictivos para la gestión de riesgos y la maximización de inversiones.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="image-container float">
+                <img src="./PENSAMIENTO VARIACIONAL_files/220px-Dijkstra_Animation.gif" alt="Aplicaciones en la vida diaria - Algoritmo de optimización de rutas">
+                <p>Algoritmo de Dijkstra: un ejemplo de optimización de rutas</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Consejos y recursos para aprender pensamiento variacional con éxito</h2>
+            
+            <h3>Estrategias de estudio:</h3>
+            <ul>
+                <li><i class="fas fa-puzzle-piece icon"></i>Relacionar los conceptos con problemas reales.</li>
+                <li><i class="fas fa-chart-area icon"></i>Usar diagramas y gráficos para visualizar variaciones en sistemas.</li>
+                <li><i class="fas fa-tasks icon"></i>Resolver ejercicios progresivamente para entender mejor la teoría.</li>
+                <li><i class="fas fa-users icon"></i>Formar grupos de estudio para discutir y resolver problemas en conjunto.</li>
+            </ul>
+            
+            <h3>Herramientas útiles:</h3>
+            <div class="grid-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-laptop-code"></i> Apps</h3>
+                        <ul>
+                            <li>MATLAB</li>
+                            <li>Wolfram Alpha</li>
+                            <li>GeoGebra</li>
+                        </ul>
+                        <a href="file:///C:/Users/crist/Downloads/PENSAMIENTO%20VARIACIONAL.HTML#" class="btn">Explorar</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-book"></i> Libros</h3>
+                        <ul>
+                            <li>"Cálculo de Variaciones" de Gelfand y Fomin</li>
+                            <li>"Mathematical Optimization" de Dimitri P. Bertsekas</li>
+                        </ul>
+                        <a href="file:///C:/Users/crist/Downloads/PENSAMIENTO%20VARIACIONAL.HTML#" class="btn">Ver más</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <h3 class="card-title"><i class="fas fa-video"></i> Videos</h3>
+                        <ul>
+                            <li>Cursos en Khan Academy</li>
+                            <li>YouTube sobre optimización matemática</li>
+                        </ul>
+                        <a href="file:///C:/Users/crist/Downloads/PENSAMIENTO%20VARIACIONAL.HTML#" class="btn">Ver tutoriales</a></div></div></div></section></div></body></html>
